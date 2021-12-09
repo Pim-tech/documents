@@ -1,0 +1,17 @@
+Ecrivez un diagramme qui fonctionne quelles que soient les dimensions de la salle.
+
+Maurice — Hier à 04:22
+Exo : description cobol de la citation
+Je crois qu'il y a un marché mondial pour, au mieux, cinq ordinateurs.
+Watson, 1943.
+
+Ecrire la description cobol en utilisant des zones de groupe :
+- une zone globale pour la citation
+- une zone de groupe pour la proposition principale (Je crois)
+- une zone de groupe pour la proposition subordonnée (la suite de la phrase)
+   une zone de groupe pour le sujet,
+   une pour le verbe
+   une pour le sujet
+   une pour le complément
+ - une zone de groupe pour l'auteur de la citation et l'année.
+ Et à chaque fois des zones élémentaires pour chaque mot, apostrophe, et espace.

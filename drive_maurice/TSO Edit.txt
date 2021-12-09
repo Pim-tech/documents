@@ -1,0 +1,105 @@
+EDIT (Choix 2 : création ou modification de fichierS)
+
+
+COMMANDES GENERALES
+
+idem Browse
+
+
+CHANGE 	Texte 1       Texte 2	
+ 
+(Ou PF6 : rechange)		 
+
+SAVE	sauvegarde du membre sans sortir
+
+CANCEL	sortie sans sauvegarde des modifications du membre
+
+COPY	membre +	
+	|After 	sur une ligne ,	insertion du contenu 
+	|Before			d’un autre fichier
+
+MOVE         		membre 	
+	|After   insertion du contenu d'un membre
+	|Before avec suppression de ce membre
+	
+	
+NULLS ON		suppression du « padding à blancs ».met des NULLS en fin de ligne
+		Ce qui permet d’insérer des caractères avec la touche INSER.
+		
+RENUM		renumérote le fichier
+UNNUM 	ôte les numéros de séquence à partir de la colonne 73
+
+HEX ON		affîche en hexadécinal 
+HEX OFF : affiche sans l’hexadecimal.
+
+PROfile		affiche le profil
+SUBmit		soumet le job
+SORT 20 30  		tri du fichier entre les colonnes 20 et 30.
+
+COMMANDES DE LIGNES
+
+Ecrire en surchargeant le numéro de ligne :
+I, In	insertion d'une, de n lignes après cette ligne (INSERT)
+
+D, Dn	suppression d'une ligne, de n lignes (DELETE)
+
+R, Rn	répétition de la ligne une fois, n fois (REPEAT)
+
+M, Mn	déplacement d'une ligne, de n lignes (MOVE) 			
+									  
+C, Cn		copie d'une ligne, de n lignes (COPY)
+
+0 (overlay)	fusion de lignes, copie les caractères là où il y a des espaces
+		Exemple : mise en commentaire de plusieurs lignes
+		
+		
+(n	décalage à gauche d'une colonne, de n colonnes sur une ligne
+
+)n	décalage à droite	‘’	‘’	‘’
+
+
+
+LC 	mise en minuscules (lowercase). Saisie de majuscules verrouillée.
+
+UC 	mise en majuscules (uppercase)
+
+TS	séparation d’une ligne en 2, à l’emplacement du curseur. Insertion d’une ligne vierge entre les 2, temporairement.
+
+TF	le contraire de TS : concaténation de plusieurs lignes en 1 seule (jusqu’à prochaine ligne blanche ou changement d’indentation). 
+	Un espace est inséré avant le contenu de la 2ème ligne ajouté.
+	
+	
+	COMMANDES DE BLOCS
+
+Ecrire en surchargeant le numéro de ligne à gauche
+
+	DD	suppression d'un bloc de lignes
+	DD
+
+	RR	répétition du bloc de lignes, n fois
+	RRn
+
+	MM	déplacement d'un bloc de lignes         +	After
+	MM		ou 		Before
+
+	CC	copie d'un bloc de lignes	+	After
+	CC		ou	Before
+
+	((	décalage de n caractères à gauche pour un bloc de lignes. 
+	((n
+
+	))	décalage à droite pour un bloc de lignes
+	))n
+		
+		C   
++			OO	Copy Overlay : copy la ligne par-dessus les lignes du groupe
+			OO	là où il y a des espaces
+
+		CC		+		OO	recopie les lignes sélectionnées en CC par			CC				OO	dessus les lignes en OO
+		
+		UCC		met le groupe de ligne en majuscules.
+		UCC
+
+		LCC		met le groupe de ligne en minuscules.
+		LCC
+		

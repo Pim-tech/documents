@@ -1,0 +1,6 @@
+
+*.desktop
+.git/
+programmes_cobol/bin/
+
+

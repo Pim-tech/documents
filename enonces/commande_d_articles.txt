@@ -1,0 +1,26 @@
+Un fichier de commandes contient les entêtes commande et les lignes commande.
+Il est trié par commande, et pour chaque commande par ligne.
+
+Description d'enregistrement :
+- pour les entêtes commande :
+  C : pour distinguer l'entête commande
+  Numéro de commande
+
+- pour les lignes commande :
+  L : pour distinguer la ligne 
+  Numéro de commande
+  Numéro de ligne 
+  Montant en euros
+  Code article
+
+ Il faut,
+   pour chaque commande, afficher 
+     le nombre de lignes
+     le total commandé
+
+   à la fin, afficher
+      le nombre total de lignes du fichier
+      le total commandé, toutes commandes confondues
+
+1) faire le diagramme
+2) écrire le cobol avec des ACCEPT ou la lecture d'un fichier.

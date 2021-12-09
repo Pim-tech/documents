@@ -1,0 +1,12 @@
+il y a trois robots:
+Le 1er c'était pour expliquer l'itération avec un prédicat.
+Le deuxième est un robot qui parcourt la salle vide en faisant des allers-retours
+mais en décalant d'un pas pour ne pas marcher sur ses pas.
+Le 3eme qui est celui d'aujourd'hui est un robot qui va laisser des traces à l'écran
+en faisant un aller de 10 pas puis un retour de 10 pas.
+A l'écran on aura des affichages à chaque pas.
+D'abord une seule étoile, puis un affichage de 2 *,
+etc et quand le robot revient, on aura un affichage de 10 * (traces de l'aller)
+et en dessous un affichage de 9 espaces et 1 étoile,
+puis un affichage de 10 * (traces de l'aller) et en dessous
+un affichage de 8 espaces et 2 étoiles etc

@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------------
+Le robot et la salle
+
+Un robot doit se déplacer dans toute une salle rectangulaire vide.
+
+Il est placé au fond à gauche et il doit longer le mur du fond.
+Arrivé au fond à droite, il rencontre un obstacle : le mur.
+Il virevolte d'un quart de tour à droite, avance d'un pas,
+et virevolte à nouveau d'un quart de tour à droite,
+il avance jusqu'au prochain obstacle qui est le mur opposé.
+Cette fois il virevolte d'un quart de tour à gauche, avance d'un pas,
+et virevolte à nouveau d'un quart de tour à gauche,
+il avance jusqu'au prochain obstacle qui est le mur opposé.
+Et ainsi de suite.
+A la fin, il virevolte, à droite ou à gauche, on ne sait pas,
+essaie d'avancer d'un pas mais rencontre un obstacle.
+Alors il s'arrête puisqu'il a parcouru toute la salle.

@@ -1,0 +1,222 @@
+ Vous allez créer un fichier avec un JCL.
+ 1) vous commencez par dupliquer le JCL HELLO en créant un nouveau membre TEST
+
+ //ADCDAE   JOB  'HELLO',MSGCLASS=X,CLASS=A,
+//             REGION=4M,MSGLEVEL=(1,1),NOTIFY=&SYSUID,TIME=(0,30)
+//*
+//* * EXECUTION DU PROGRAMME PRINCIPAL                           *
+//* **
+//HELLO   EXEC PGM=HELLO
+//* **
+//* * DECLARATION DE LA BIBLIOTHEQUE QUI CONTIENT LE LOAD MODULE *
+//* **
+//* **ADCDA.COB.LOAD**
+//STEPLIB  DD  DSN=ADCDA.COB.LOAD,DISP=SHR
+//* **
+//* * DECLARATION DU FICHIER DES MOUVEMENTS EN ENTREE            *
+//* **
+//SYSPRINT DD SYSOUT=*
+//TEST     DD DSN=ADCDA.FIC.TEST,DISP=(NEW,CATLG,DELETE),
+//           UNIT=SYSDA,
+//          DCB=(DSORG=PS,RECFM=FB,LRECL=80,BLKSIZE=800),
+//          SPACE=(TRK,(1,1),RLSE)
+/*
+[09:43]
+ vous voyez que j'ai ajouté des lignes à la fin
+[09:44]
+ toutes les lignes commencent pas //
+//TEST     avec TEST qui est le DDNAME, autrement dit, c'est normalement le nom externe du fichier dans un programme cobol. Votre sagacité a remarqué qu'il n'y a pas de fichier TEST dans le programme HELLO, mais ça marche. JCL exige que tous les fichiers cobol lui soient connus, mais si vous en mettez plus, il ne dit rien
+
+Aziz — Aujourd’hui à 09:47
+Maurice, c'est bien en            :  Project  . . ADCDD
+                                                        Group  . . . ADCD
+                                                        Type . . . . JCL                   ?   pour accéder aux JCLs catalogués.
+
+ADCDA.COB.JCL(JTSEST)      Project . . . ADCDA
+ Group . . . . COB      .
+ Type  . . . . JCL
+ Member  . . . (modifié)
+[09:50]
+Pour le project, vous mettez votre logon ADCDx, pas le mien ADCDA 
+
+------------------------------------------------------------------------------
+
+ADCDA.COB.JCL(JTSEST)      Project . . . ADCDA
+ Group . . . . COB      .
+ Type  . . . . JCL
+ Member  . . . (modifié)
+[09:50]
+Pour le project, vous mettez votre logon ADCDx, pas le mien ADCDA 
+
+Image.
+
+ ton fichier doit commencer pas adcdF.fic
+ et Il faut écrire SPACE=(TRK,(1,1),RLSE)
+   >error CN(INTERNAL) ? JOB00092 $HASP165 ADCDFE   ENDED AT N1 - JCL ERROR CN(INTERNAL)
+
+Maurice — Aujourd’hui à 10:05
+ pour UNIT, il n'y a qu'une valeur  UNIT=SYSDA,
+[10:06]
+ Pour DCB, il y a des sous-paramètres DSORG RECFM BLKSIZE DCB=(DSORG=PS,RECFM=FB,LRECL=80,BLKSIZE=800),
+[10:07]
+ on  y reviendra demain (modifié)
+
+ quand à la fin du log vous avez  3 IEFC621I EXPECTED CONTINUATION NOT RECEIVED
+[10:10]
+ vous devez regarder la ligne 3 du log, pas de votre JCL
+[10:11]
+ 3 //STEPLIB  DD  DSN=ADCDF.COB.LOAD,DISP=SHR,      La virgule indique d'autres paramètres, soir sur la mêm ligne soit sur la ligne suivante
+[10:11]
+ la ligne se suffit à elle-même, il faut enlever la virgule tout à droite après le SHR (modifié)
+
+ Chez le client vous aurez des noms de disque que vous reprendrez. Ici c'est  Volume serial . . . . ZASYS1
+
+
+
+ Option ===> C
+
+ C  Copy data set or member(s)          CP C
+ M  Move data set or member(s)          MP M
+
+Specify "From" Data Set below, then press En
+
+From ISPF Library:
+   Project . . . ADCDA         (--- Options 
+   Group . . . . COB      . . .          . .
+   Type  . . . . JCL
+   Member  . . .                  (Blank or 
+                                   "*" for a
+
+From Other Partitioned or Sequential Data Se
+   Name  . . . . . . . 'ADCDA.FIC.TEST2
+   Volume Serial . . .            (If not ca
+
+Data Set Password  . .            (If passwo
+
+
+
+ vous faites entrée, puis   vous donnez le nom du nouveau fichier   COPY     From ADCDA.FIC.TEST2
+Command ===>
+
+Specify "To" Data Set Below
+
+To ISPF Library:                 Options:
+   Project  . . ADCDA               Enter "/" to
+   Group  . . . COB                    Replace l
+   Type . . . . JCL                 /  Process m
+   Member . . .
+
+To Other Partitioned or Sequential Data Set:
+   Name  . . . . . . . 'ADCDA.FIC.TEST3
+   Volume Serial . . .           (If not catalog
+
+Data Set Password  . .           (If password pr
+
+To Data Set Options:
+[10:39]
+ et Allocation Options:
+1  1. Allocate using the attributes of: 
+      ADCDA.FIC.TEST2
+[10:40]
+ Vous n'êtes que 3 à avoir créé un fichier .....
+
+
+Pour la syntaxe du JCL, vous avez le  memento-jcl.pdf
+
+
+Si vous quittez le mainframe, faites le proprement    =X en haut de la fenêtre, puis tapez 2                     Specify Disposition of Log Data Set
+Command ===>
+
+Log Data Set (ADCDA.SPFLOG1.LIST) Disposition:
+Process Option . . . . 2  1. Print data set and delete
+                          2. Delete data set without printing                                     puis LOGOFF (modifié)
+[10:44]
+
+
+je reviens dans u ninstant
+[11:01]
+ Maintenant que vous savez créer des fichiers, vous allez les utiliser.
+[11:01]
+ Vous allez dupliquer le programme qui cherche le pus petit et le plus grand et remplacez le ACCEPT par un READ
+[11:02]
+ Faites le ménage dans la log, en particulier ADCDAE
+ JCL : on commence par // et on tape le nom du fichier SANS ESPACE
+
+
+Vous êtes sur le nouveau  programme qui cherche le pus petit et le plus grand dans une liste ? Cette fois la liste sera dans un fichier. Que vous manque t il pour écrire le cobol ?
+
+Vous créez un fichier user.fic.minmax d 80 de long. Vous sisissez dedans des données. Si dans le programme vous avez prévu une zone de 3 caractères, vous ne saisissez que les 3 premiers caractères. C'est tout
+
+Adrien Foulon — Aujourd’hui à 11:33
+ok et du coup au niveau du chemin d'accès il faut juste mettre minmax ou adcd*.fic.minmax
+Le message n'a pas pu être chargé.
+
+Maurice — Aujourd’hui à 11:34
+Dans le cobol SELECT .... ASSIGN TO LISTE   et dans le JCL // LISTE          DD DSN=ADSCD.FIC.MINMAX,DISP=SHR (modifié)
+
+Adrien Foulon — Aujourd’hui à 11:34
+d'accord merci
+Le message n'a pas pu être chargé.
+
+khellaf — Aujourd’hui à 11:42
+pour l'instant je travaille seul, et je ne sais pas comment je peux partager mon écran avec qlq sur discord, en plus j'ai pas reçu de  demande pour le faire .
+
+Adrien Foulon — Aujourd’hui à 11:43
+pour partager l'écran tu ouvres une conversation en privé avec la personne et en haut tu as une icône caméra. Une fois que la discussion est lancée tu peux couper la caméra et faire un partage d'écran si jamais besoin 
+Le message n'a pas pu être chargé.
+
+Maurice — Aujourd’hui à 11:43
+merci Adrien
+
+Adrien Foulon — Aujourd’hui à 11:44
+pas de soucis 
+
+khellaf — Aujourd’hui à 11:44
+merci
+
+Maurice — Aujourd’hui à 11:46
+ Quand votre fichier est rempli, quand votre programme est modifié et compilé, quand vous avez lancé le JCL mis à jour, je vous donne une nouvelle tâche : écrire dans un fichier.
+[11:48]
+ Vous créez un nouveau fichier et vous ajouter cette clause dans le programme   SELECT .... ASSIGN TO MESSAGE et dans le JCL // MESSAGE DD DSN=ADSCD.FIC.MESSAGE,DISP=SHR
+[11:51]
+  Exemple d'un fichier en écriture  en cobol        6100-FOUT-OU-DEB.                                                00100003
+      * OUVERTURE DE FICHIER FOU-JOUR                                   00100101
+           OPEN OUTPUT FOU-JOUR.                                        00100201
+           IF WS-FS-OU-JOUR NOT = ZERO                                  00100303
+               DISPLAY 'PB OUVERTURE DU FICHIER FOU-JOUR'               00100401
+               DISPLAY 'CODE : ' WS-FS-OU-JOUR                          00100501
+               PERFORM 9999-ERREUR-PROGRAMME-DEB                        00100600
+               THRU    9999-ERREUR-PROGRAMME-FIN.                       00100700
+       6100-FOUT-OU-FIN. EXIT.
+[11:51]
+       6130-FOU-ECRITURE-DEB.                                           00102005
+      * ECRITURE D'UN ENREGISTREMENT DE FOU-JOUR                        00103001
+           WRITE FS-ENROUT-JOUR FROM WS-OU                              00104005
+           END-WRITE.                                                   00105000
+           IF WS-FS-OU-JOUR NOT = ZERO                                  00106003
+               DISPLAY 'PB ECRITURE DU FICHIER FOU-JOUR'                00107001
+               DISPLAY 'CODE : ' WS-FS-OU-JOUR                          00108001
+               PERFORM 9999-ERREUR-PROGRAMME-DEB                        00109000
+               THRU    9999-ERREUR-PROGRAMME-FIN.                       00110000
+           IF WS-FS-OU-JOUR = ZERO                                      00110103
+               ADD 1 TO WS-CTR-OU.                                      00110206
+       6130-FOU-ECRITURE-FIN. EXIT.
+[11:52]
+ Le paragraphe statistiques devient      8999-STATISTIQUES-DEB.                                           00114200
+           MOVE   WS-CTR-IN    TO  WS-CTRZ-IN .                         00114306
+           MOVE   WS-CTR-OU    TO  WS-CTRZ-OU .                         00114406
+           DISPLAY ' '.                                                 00114506
+           DISPLAY '**'                 00114606
+           DISPLAY '* STATISTIQUES DU PROGRAMME C1PAL1'                 00114706
+           DISPLAY '**'                 00114806
+           DISPLAY '                                  '                 00114906
+           DISPLAY 'ENREGISTREMENTS LUS    : ' WS-CTRZ-IN.              00115006
+           DISPLAY 'ENREGISTREMENTS ECRITS : ' WS-CTRZ-OU.              00115106
+           DISPLAY ' '.                                                 00115206
+       8999-STATISTIQUES-FIN. EXIT.
+
+Maurice — Aujourd’hui à 12:01
+ Pas d'autres remarques ?
+
+pierre‑louis — Aujourd’hui à 12:02
+pour le moment la machine avec 7032 installe dessus installe des mises a jour, donc j'attend qu'elle ai fini

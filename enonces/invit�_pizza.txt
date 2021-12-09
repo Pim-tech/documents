@@ -1,0 +1,13 @@
+
+1/ Pizza
+Ya un nombre d'invités.
+Chacun doit manger 1,1 pizza
+
+Commbien de pizza commander
+
+2/ Distributeur de monnaie
+Billets de 100
+Billets de 200
+Puis , pièces.
+
+Mais optimiser;

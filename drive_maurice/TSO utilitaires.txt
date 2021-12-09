@@ -1,0 +1,29 @@
+Les UTILITAIRES (choix 3)
+
+Outil : File(3.1)
+
+Espace :  affichage de la liste des fichiers .
+H : impression de la liste des fichiers sur l’imprimante locale.
+B : Browse.
+E : Edit.
+R : Rename.
+D : Delete.
+P : impression du contenu du fichier sur l’imprimante locale.
+
+
+Outil : ALLOCATE(3.2)
+
+Allocation d’un nom et d’un espace à un fichier séquentiel.
+Le mieux est d’afficher d’abord  les caractéristiques  d’un fichier existant, puis :
+A pour allocate, et mettre le nom du nouveau fichier et du volume sur lequel on veut le mettre 
+	affiche les caractéristiques de l’ancien fichier. 
+		Il n’y a que peu de choses à changer (taille des enregistrements et du facteur de bloquage par exemple).
+	Il est possible ensuite de recopier les données d’un autre fichier dedans avec 3.3. 
+
+
+Outils : MOVE, COPY(3.3)
+
+C : Création d’un fichier en recopiant un autre fichier.
+M : Création d’un fichier avec recopie et suppression du fichier de départ.
+	Déconseillé. Si la manipulation plante, on perd le fichier source et le fichier cible.
+	Préférer le COPY suivi du DELETE

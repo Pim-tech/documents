@@ -1,0 +1,44 @@
+Taper KEYS sur la ligne de commande de l’écran où doivent s’appliquer les touches fonctions 
+
+AP1:	déverrouillage du clavier en cas d'incident
+(attention)
+
+AP2:	rappel de l'écran précédent après une erreur de manipulation 
+(reshow)
+
+PF1 :	- complément d'information sur la commande SPF en cours
+(help)	- affichage d'une ligne d'information explicitant le message d'erreur ;
+si cette information est insuffisante, appuyer une seconde fois sur la touche pour obtenir le paragraphe du tutorial correspondant au type d'erreur détecté
+Pour sortir de la documentation, faire PF3 ou PFI 5
+
+PF2 :	partage de I" écran pour deux actions séparées
+(Split)	le partage de l'écran s'effectue à l'endroit où le curseur est positionné ; l'écran actif est celui où se trouve le curseur
+
+PF3 :	retour au menu précédent et sauvegarde du fichier en cours sous EDIT
+(end)	
+
+PF4 :	        retour au menu principal et sauvegarde du fichier en cours sous EDIT
+(return)	       
+
+PF5 :	      répétition de la commande FIND sous EDIT et BROWSE
+ (Rfind)
+
+PF6 :		 répétition de la commande Change sous EDIT
+ (REChange)
+
+PF7 : 		affichage du fichier une page en arrière
+(up)
+
+PF8 : 		affichage du fichier une page en avant 
+(down)
+
+PF9 :	  permet de changer d'écran actif (en split) sans avoir à déplacer le curseur
+(swap)	
+
+PF10 :	affichage des colonnes 1 à 72 (sur  80)
+(left)	déplacement vers la gauche
+
+PF11 :	affichage de la fin des lignes de l'écran (col 9-80)
+(right)	déplacement vers la droite
+
+PF12 :	repositionne le curseur sur la zone Commande, et réaffiche la commande précédente. (cretriev ou retrieve)
