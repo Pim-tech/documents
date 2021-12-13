@@ -1,0 +1,5 @@
+IDCAMS Actions basique, Print, tests si fichier est vide, Informations sur les fichiers.
+    IDCAMS est in programme
+SORT => Tris de toutes sortes 
+IEFRR14 => Supprimer des fichiers, Allouer des fichier comme fonction 3.2.
+
