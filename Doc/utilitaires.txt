@@ -2,4 +2,8 @@ IDCAMS Actions basique, Print, tests si fichier est vide, Informations sur les f
     IDCAMS est in programme
 SORT => Tris de toutes sortes 
 IEFRR14 => Supprimer des fichiers, Allouer des fichier comme fonction 3.2.
+iconv -f UTF-8 -t IBM-1141 $utf8_file > $ebcdic_file
+
+#Sur invite hercules ou console principale:
+/start ftpd,srvport=2100
 
