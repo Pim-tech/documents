@@ -1,6 +1,7 @@
 
 *.desktop
 .git/
+temp/
 programmes_cobol/bin/
 
 

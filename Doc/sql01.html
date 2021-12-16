@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<title>Abend: Les codes retours Mainframe</title>
+<meta name="author" content="Guillaume Ventre" >
+<meta name="description" content="Code retour pour developpeur mainframe en fran&ccedil;ais" >
+<meta name="keywords" content="sql, code, retour, abend, db2, mainframe, plantage, load, tablespace, database, dba, mvs"  >
+<meta name="robots" content="index,follow" >
+<meta http-equiv="language" content="fr" >
+<link rel="stylesheet" type="text/css" href="main.css" >
+</head>
+<body>
+<div id="container">
+
+<div id="header"><h1><span>Abend: les codes retour Mainframe</span></h1>
+<p>Les codes retour Mainframe</p>
+
+</div>
+
+
+
+<div id="content">
+<h2>1xx</h2>
+<p><em>+100</em> : Probl&egrave;me de donn&eacute;es: table vide ou colonne non trouv&eacute;e pour un <code>fetch</code>, <code>update</code> ou <code>delete</code>. </p>
+<p><em>-101</em> : Ordre SQL trop long ou trop complexe.                                                   </p>
+<p><em>-102</em> : Cha&icirc;ne litt&eacute;rale trop longue (ordre SQL).                                               </p>
+<p><em>-103</em> : Litt&eacute;ral num&eacute;rique invalide dans un ordre SQL.                                          </p>
+<p><em>-104</em> : Symbole invalide dans un ordre SQL.                                                     </p>
+<p><em>-105</em> : Token invalide dans un ordre SQL.                                                       </p>
+<p><em>-107</em> : Nom trop long (ordre SQL).                                                              </p>
+<p><em>-109</em> : Clause interdite dans un ordre SQL.                                                     </p>
+<p><em>-110</em> : Litt&eacute;ral hexad&eacute;cimal invalide dans un ordre SQL.                                        </p>
+<p><em>+110</em> : Message d'information.                                                                  </p>
+<p><em>-111</em> : La fonction de la colonne n'inclue pas son nom (ordre SQL).                             </p>
+<p><em>+111</em> : Option <code>subpage</code> invalide (ordre SQL).                                                  </p>
+<p><em>-112</em> : Op&eacute;rande de fonction invalide (ordre SQL).                                              </p>
+<p><em>-113</em> : Caract&egrave;re invalide (ordre SQL).                                                         </p>
+<p><em>-114</em> : La location ne pointe pas le serveur courant (UNIX).                                    </p>
+<p><em>-115</em> : Probl&egrave;me avec l'op&eacute;rateur de comparaison (ordre SQL).                                   </p>
+<p><em>-117</em> : Nombre d'objets diff&eacute;rent du nombre de colonnes (ordre SQL).                            </p>
+<p><em>+117</em> : Nombre de valeurs ins&eacute;r&eacute;es diff&eacute;rent du nombre de colonnes de la table (ordre SQL).     </p>
+<p><em>-118</em> : La table ou la vue de l'<code>insert</code> est d&eacute;j&agrave; pr&eacute;sente dans le<code>from</code> (ordre SQL).              </p>
+<p><em>-119</em> : Colonne non incluse au groupe par la clause (ordre SQL).                                </p>
+<p><em>-120</em> : La clause <code>WHERE ON SET</code> contient une fonction de colonne (ordre SQL).                  </p>
+<p><em>-121</em> : Nom de colonne identifi&eacute; plus d'une fois (ordre SQL).                                   </p>
+<p><em>-122</em> : Colonne incluse dans le <code>SELECT</code> mais pas dans le <code>GROUP BY</code> (ordre SQL).               </p>
+<p><em>-125</em> : La clause n'identifie pas une colonne du r&eacute;sultat (ordre SQL).                          </p>
+<p><em>-126</em> : Deux clauses incompatibles (ordre SQL).                                                 </p>
+<p><em>-127</em> : <code>DISTINCT</code> est sp&eacute;cifi&eacute; plus d'une fois dans un <code>SUBSELECT</code> (ordre SQL).                </p>
+<p><em>-128</em> : Valeur <code>NULL</code> invalide (ordre SQL).                                                     </p>
+<p><em>-129</em> : Trop de noms de tables (ordre SQL).                                                     </p>
+<p><em>-131</em> : Types de donn&eacute;es incompatibles (ordre SQL).                                             </p>
+<p><em>-132</em> : La deuxi&egrave;me op&eacute;rande n'est pas une cha&icirc;ne (ordre SQL).                                  </p>
+<p><em>-133</em> : Probl&egrave;me de corr&eacute;lation de fonctions (ordre SQL).                                       </p>
+<p><em>-134</em> : Usage incorrect d'un nom long de colonne (ordre SQL).                                   </p>
+<p><em>-136</em> : Longueur de cl&eacute; de tri sup&eacute;rieure &agrave; 4000 bytes (ordre SQL).                             </p>
+<p><em>-137</em> : R&eacute;sultat de concat&eacute;nation trop long (ordre SQL).                                        </p>
+<p><em>-138</em> : Arguments de la fonction <code>SUBSTR</code> invalides (ordre SQL).                                </p>
+<p><em>-144</em> : Num&eacute;ro de section invalide (ordre SQL).                                                 </p>
+<p><em>-150</em> : Le r&eacute;sultat est une vue non autoris&eacute;e (ordre SQL/ probl&egrave;me de privil&egrave;ge)                     </p>
+<p><em>-151</em> : Colonne non autoris&eacute;e en mise &agrave; jour (ordre SQL).                                       </p>
+<p><em>-152</em> : Le nom de la contrainte est &eacute;gale &agrave; son type (ordre SQL).                               </p>
+<p><em>-153</em> : Le <code>CREATE VIEW</code> ne contient pas la liste des colonnes (ordre SQL).                     </p>
+<p><em>-154</em> : <code>CREATE VIEW</code> failed &agrave; cause d'une clause <code>UNION</code> (ordre SQL).                          </p>
+<p><em>-156</em> : Ordre SQL n'identifiant pas une table.                                                  </p>
+<p><em>-157</em> : Le nom de l'objet ne d&eacute;signe pas une table (ordre SQL).                                 </p>
+<p><em>-158</em> : Nombre de colonnes incorrect (ordre SQL).                                               </p>
+<p><em>-159</em> : Probl&egrave;me token sur <code>DROP</code> (ordre SQL).                                                  </p>
+<p><em>-160</em> : Option incorrecte (ordre SQL).                                                          </p>
+<p><em>-161</em> : R&eacute;sultat ne correspondant pas &agrave; la d&eacute;finition de la vue (ordre SQL).                    </p>
+<p><em>+162</em> : Tablespace en <code>CHECK PENDING</code> <a href="#">Voir une solution</a> .                                                         </p>
+<p><em>-164</em> : <code>CREATE VIEW</code> non autoris&eacute; (ordre SQL).                                                 </p>
+<p><em>-170</em> : Nombre d'arguments invalide (ordre SQL).                                                </p>
+<p><em>-171</em> : Type de donn&eacute;e, longueur ou valeur invalide pour cette fonction (ordre SQL).            </p>
+<p><em>-173</em> : Clause <code>UR</code> sp&eacute;cifi&eacute;e mais le pointeur n'est pas en <code>RO</code> (ordre SQL).                     </p>
+<p><em>-180</em> : Probl&egrave;me dans le format de la date (ordre SQL).                                         </p>
+<p><em>-181</em> : Probl&egrave;me dans le format de la date (ordre SQL).                                         </p>
+<p><em>-182</em> : Expression arithm&eacute;tique invalide (ordre SQL).                                           </p>
+<p><em>-183</em> : Operation sur date invalide (ordre SQL).                                                </p>
+<p><em>-184</em> : Param&egrave;tre invalide dans la date (ordre SQL).                                            </p>
+<p><em>-185</em> : Pas d'exit <code>DATETIME</code> install&eacute; (SYSTEME => CMID).                                       </p>
+<p><em>-186</em> : Longueur de date incr&eacute;ment&eacute;e, <code>REBIND</code> n&eacute;cessaire (ordre SQL).                            </p>
+<p><em>-187</em> : Date/heure MVS<sup>&copy;</sup>&nbsp;invalide => IPL + TOD CLOCK => CMID.                                    </p>
+<p><em>-188</em> : Valeur de variable invalide (ordre SQL).                                                </p>
+<p><em>-189</em> : CCSID invalide                                                                          </p>
+<p><em>-191</em> : Longueur de <code>MIXED DATA</code> invalide (ordre SQL).                                          </p>
+<p><em>-197</em> : <code>ORDER BY</code> non autoris&eacute; pour une union (ordre SQL).                                     </p>
+<p><em>-198</em> : Op&eacute;rande vide ou &agrave; blanc (ordre SQL).                                                   </p>
+<p><em>-199</em> : Mot cl&eacute; invalide (ordre SQL).                                                           </p>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<div id="nav1">
+
+<ul>
+<li><a href="index.html">Accueil</a></li>
+<li><a href="http://peutetreunereponse.net">Le blog de l'auteur</a></li>
+<li><a href="galerie/index.html" >Galerie des codes</a></li>
+
+</ul>
+
+</div>
+
+<div id="sql">
+<h3>SQL code</h3>
+<ul>
+<li><a href="sql00.html">0xx</a></li>
+<li><a href="sql01.html">1xx</a></li>
+<li><a href="sql02.html">2xx</a> Ordre SQL invalide</li>
+<li><a href="sql03.html">3xx</a> Probl&egrave;me de host variable</li>
+<li><a href="sql04.html">4xx</a> Probl&egrave;me d'attribut</li>
+<li><a href="sql05.html">5xx</a> Probl&egrave;me de curseur, d'autorisation</li>
+<li><a href="sql06.html">6xx</a> Ordre DDL incorrect</li>
+<li><a href="sql07.html">7xx</a></li>
+<li><a href="sql08.html">8xx</a> Probl&egrave;me de plan</li>
+<li><a href="sql09.html">9xx</a> Probl&egrave;me connexion DB2</li>
+<li><a href="sql20.html">2xxx</a></li>
+<li><a href="sql30.html">3xxxx</a></li>
+</ul>
+<h3>Reason code</h3>
+
+<ul>
+<li><a href="sqlrc01.html">00C9008x</a></li>
+<li><a href="sqlrc02.html">00C9009x</a></li>
+<li><a href="sqlrc03.html">00D700xx</a></li>
+</ul>
+
+
+<h3>Divers</h3>
+
+<ul>
+<li><a href="commandesdb2.html">Commandes DB2</a></li>
+<li><a href="statusbase.html">Status d'une base</a></li>
+<li><a href="typeressource.html">Type de ressource</a></li>
+</ul>
+</div>
+
+
+<div id="footer">
+
+<p>
+Copyright<sup>&copy;</sup> 2006 - Guillaume Ventre&nbsp;|&nbsp;
+<a href="http://cerbermail.com/?WvMxYpXbrp" >Contact</a>&nbsp;|&nbsp;
+<a href="http://jigsaw.w3.org/css-validator/validator?uri=http://peutetreunequestion.free.fr/abend/main.css" title="Valid CSS">CSS</a>&nbsp;|&nbsp;
+<a href="http://validator.w3.org/check?uri=http://peutetreunequestion.free.fr/abend/sql01.html" title="Valid HTML 4.01 Strict">HTML 4.01 Strict</a>&nbsp;|&nbsp;
+<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/"  title="Le code contenu dans les articles est sous licence Creative Common">CC</a>&nbsp;|&nbsp;
+<a href="#" title="Allez en haut">Haut</a>
+</p>
+
+</div>
+</div>
+</body>
+</html>
