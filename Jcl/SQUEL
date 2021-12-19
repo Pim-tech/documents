@@ -1,0 +1,15 @@
+//ADCDXE   JOB  'HELLO',MSGCLASS=X,CLASS=A,
+//             REGION=4M,MSGLEVEL=(1,1),NOTIFY=&SYSUID,TIME=(0,30)
+//*
+//* * EXECUTION DU PROGRAMME PRINCIPAL                           *
+//* **************************************************************
+//HELLO   EXEC PGM=SQUEL
+//* **************************************************************
+//* * DECLARATION DE LA BIBLIOTHEQUE QUI CONTIENT LE LOAD MODULE *
+//* **************************************************************
+//STEPLIB  DD  DSN=ADCDX.COB.LOAD,DISP=SHR
+//* **************************************************************
+//* * DECLARATION DU FICHIER DES MOUVEMENTS EN ENTREE            *
+//* **************************************************************
+//SYSPRINT DD SYSOUT=*
+/*

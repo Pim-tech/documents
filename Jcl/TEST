@@ -1,0 +1,19 @@
+//ADCDCE   JOB  'HELLO',MSGCLASS=X,CLASS=A,
+//             REGION=4M,MSGLEVEL=(1,1),NOTIFY=&SYSUID,TIME=(0,30)
+//*
+//* * EXECUTION DU PROGRAMME PRINCIPAL                           *
+//* **************************************************************
+//HELLO   EXEC PGM=HELLO
+//* **************************************************************
+//* * DECLARATION DE LA BIBLIOTHEQUE QUI CONTIENT LE LOAD MODULE *
+//* **************************************************************
+//STEPLIB  DD  DSN=ADCDC.COB.LOAD,DISP=SHR
+//* **************************************************************
+//* * DECLARATION DU FICHIER DES MOUVEMENTS EN ENTREE            *
+//* **************************************************************
+//SYSPRINT DD SYSOUT=*
+//TEST     DD DSN=ADCDC.FIC.MINMAX,DISP=(NEW,CATLG,DELETE),
+//            UNIT=SYSDA,
+//            DCB=(DSORG=PS,RECFM=FB,LRECL=80,BLKSIZE=800),
+//             SPACE=(TRK,(1,1),RLSE)
+/*
