@@ -14,20 +14,14 @@
        FILE-CONTROL.
            SELECT CLIENT
             ASSIGN TO FCLIENT
-            ORGANISATION IS LINE SEQUENTIAL
-            ACCESS MODE IS SEQUENTIAL
             FILE STATUS IS WS-STATUS-CLIENT.
       *
            SELECT COMMANDE
             ASSIGN TO FCOMMAND
-            ORGANISATION IS LINE SEQUENTIAL
-            ACCESS MODE IS SEQUENTIAL
             FILE STATUS IS WS-STATUS-COMMANDE.
       *
            SELECT  ENRICHIE
             ASSIGN TO FENRICHI
-            ORGANISATION IS LINE SEQUENTIAL
-            ACCESS MODE IS SEQUENTIAL
             FILE STATUS IS WS-STATUS-ENRICHIE.
       ***************
        DATA DIVISION.
@@ -36,11 +30,11 @@
       *=============
        FILE SECTION.
          FD CLIENT.
-           01 FS-CLIENT PIC X(100).
+         01 FS-CLIENT PIC X(100).
          FD COMMANDE.
-           01 FS-COMMANDE PIC X(110).
+         01 FS-COMMANDE PIC X(110).
          FD ENRICHIE.
-           01 FS-ENRICHIE PIC X(110).
+         01 FS-ENRICHIE PIC X(110).
       *========================
        WORKING-STORAGE SECTION.
          01 WS-CLIENT.
@@ -49,7 +43,7 @@
             05 FILLER                     PIC X(65).
          01 WS-COMMANDE.
             05 IDCOMMAND                  PIC 9(5).
-            05 CODESTR                    PIC XX. 
+            05 CODESTR                    PIC XX.
             05 NUMLIGNE                   PIC 99.
             05 COMMANDE-IDCLIENT          PIC 9(5).
             05 FILLER                     PIC X(96).
@@ -64,7 +58,7 @@
           01 WS-STATUS-COMMANDE PIC XX.
           01 WS-STATUS-ENRICHIE PIC XX.
 
-      *   
+      *
           01 WS-CTR-CLIENT PIC 9(3) VALUE ZERO.
           01 WS-CTR-COMMANDE PIC 9(3) VALUE ZERO.
           01 WS-CTR-ENRICHIE PIC 9(3) VALUE ZERO.
@@ -137,10 +131,10 @@
             EXIT.
       *===============================================================*
       *
-      
+
        6000-OPEN-CLIENT-DEB.
            OPEN INPUT CLIENT.
-               IF WS-STATUS-CLIENT NOT = 0
+               IF WS-STATUS-CLIENT NOT = ZERO
                   DISPLAY 'ERREUR OPEN CLIENT ' WS-STATUS-CLIENT
                   PERFORM 9999-ERREUR-PROGRAMME-DEB
                      THRU 9999-ERREUR-PROGRAMME-FIN
@@ -148,22 +142,22 @@
        6000-OPEN-CLIENT-FIN.
             EXIT.
        6020-READ-CLIENT-DEB.
-          READ CLIENT INTO WS-CLIENT.
-          EVALUATE WS-STATUS-CLIENT
-              WHEN = '00'
+            READ CLIENT INTO WS-CLIENT.
+             EVALUATE WS-STATUS-CLIENT
+              WHEN  '00'
                  ADD 1 TO WS-CTR-CLIENT
-              WHEN = '10'
+              WHEN  '10'
                  CONTINUE
               WHEN OTHER
                  DISPLAY 'ERROR READ CLIENT '
                           WS-STATUS-CLIENT
-          END-EVALUATE.
+             END-EVALUATE.
        6020-READ-CLIENT-FIN.
             EXIT.
       *
        6100-OPEN-COMMANDE-DEB.
            OPEN INPUT COMMANDE.
-           IF WS-STATUS-COMMANDE NOT = 0
+           IF WS-STATUS-COMMANDE NOT = ZERO
                DISPLAY 'ERREUR OPEN COMMANDE ' WS-STATUS-COMMANDE
                PERFORM 9999-ERREUR-PROGRAMME-DEB
                   THRU 9999-ERREUR-PROGRAMME-FIN
@@ -171,11 +165,11 @@
        6100-OPEN-COMMANDE-FIN.
               EXIT.
        6120-READ-COMMANDE-DEB.
-          READ COMMANDE INTO WS-COMMANDE.
+             READ COMMANDE INTO WS-COMMANDE.
              EVALUATE WS-STATUS-COMMANDE
-                 WHEN = '00'
+                 WHEN  '00'
                     ADD 1 TO WS-CTR-COMMANDE
-                 WHEN = '10'
+                 WHEN  '10'
                     CONTINUE
                  WHEN OTHER
                     DISPLAY 'ERREUR READ COMMANDE' WS-STATUS-COMMANDE
@@ -211,18 +205,31 @@
             EXIT.
       *
        6010-CLOSE-CLIENT-DEB.
+            CLOSE CLIENT.
+            IF WS-STATUS-CLIENT NOT = ZERO
+               DISPLAY "PROBLEME CLOSE CLIENT: " WS-STATUS-CLIENT
+            END-IF.
        6010-CLOSE-CLIENT-FIN.
-           EXIT.
+            EXIT.
       *
        6110-CLOSE-COMMANDE-DEB.
            CLOSE COMMANDE.
            IF WS-STATUS-COMMANDE NOT = ZERO
-               DISPLAY "PROBLEME CLOSE COMMAND: " WS-STATUS-COMMANDE
+               DISPLAY "PROBLEME CLOSE COMMAND: "
+           WS-STATUS-COMMANDE
            END-IF.
        6110-CLOSE-COMMANDE-FIN.
+            CLOSE COMMANDE.
+            IF WS-STATUS-COMMANDE NOT = ZERO
+                DISPLAY "PROBLEME CLOSE COMMANDE: " WS-STATUS-COMMANDE
+            END-IF.
            EXIT.
       *
        6210-CLOSE-ENRICHI-DEB.
+            CLOSE ENRICHIE.
+            IF WS-STATUS-ENRICHIE NOT = ZERO
+                DISPLAY "PROBLEME CLOSE ENRICHIE " WS-STATUS-ENRICHIE
+            END-IF.
        6210-CLOSE-ENRICHI-FIN.
            EXIT.
       *
