@@ -1,0 +1,32 @@
+CREFOUR
+CREMARQ
+CRETAB
+CRETAB1
+CREETAB2
+CRETARTI
+-- CRETBSPC
+CRETFAMI
+CRETFOUR
+CRETMARQ
+CTALB
+
+INSART
+INSFOUR
+INSMARQ
+INSFAM
+INSTAB
+INSTAB1
+INSTAB2
+INSTDECL
+INSTFAMI
+INSTFOU
+INSTMARQ
+
+Question 8a :  "Article plus vieux que 1 mois  voir adcdl 'ADCDL.COB.SQL(ANSWERS8)'
+Question 8b :  "Article entre date et date : 'ADCDL.COB.SQL(ANSWERS9)'
+Question 8c :  "Déclinaisons"                 ADCDL.COB.SQL(ANSWERS10)'
+Question 9  :  "Calculez la valeur du stock par article.
+Question 10 :  "Quelle déclinaison a le stock le plus valorisé"
+Question 11 :  "Mettre à jour le stock dans TARTI à partir du jeux de TDECL." 
+Question 12 :  "Insérer dans votre table le contenu de votre table ADCDX."
+Question 13 :  "Afficher le contenu des déclinaisons par coloris."
