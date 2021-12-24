@@ -1,0 +1,5 @@
+  146  IGYPS2048-S   An invalid abbreviated relation condition was found.
+  The statement was discarded.
+  Same message on line:    148    172    174
+IND GET 'ADCDC.COB.JCL(JBAPP1)' ASCII CRLF
+IND$FILE GET 'C988.FIX.C4445.P0060001' ASCII CRLF [-f]

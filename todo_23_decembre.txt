@@ -30,3 +30,48 @@ Question 10 :  "Quelle déclinaison a le stock le plus valorisé"
 Question 11 :  "Mettre à jour le stock dans TARTI à partir du jeux de TDECL." 
 Question 12 :  "Insérer dans votre table le contenu de votre table ADCDX."
 Question 13 :  "Afficher le contenu des déclinaisons par coloris."
+
+  IDART  IDDEC  TAILLE  COLORIS                QTES   QTEA   QUOT 
+
+
+
+********************************* Top of Data **********************************
+---------+---------+---------+---------+---------+---------+---------+---------+
+   SELECT * FROM ADCDA.TDECL;                                           00010006
+---------+---------+---------+---------+---------+---------+---------+---------+
+  IDART  IDDEC  TAILLE  COLORIS                QTES   QTEA   QUOT               
+---------+---------+---------+---------+---------+---------+---------+---------+
+     1.    90.  38      NOIR                    72.    25.     5.               
+     1.    91.  38      BLEU                    19.    25.     5.               
+     1.    92.  40      BLANC                   38.    15.    10.               
+     1.    93.  42      NOIR                     8.    10.    20.               
+     1.    94.  44      BLEU                    92.    40.    10.               
+     2.    80.  L       NOIR                    12.    25.    10.               
+     2.    81.  L       BLEU                    25.    25.     5.               
+     2.    82.  M       NOIR                    52.    27.    32.               
+     2.    83.  XS      BLEU                    46.    10.     3.               
+     2.    84.  XL      VERT                    19.    20.    12.               
+     6.    70.  48      VERT                     5.     3.     5.               
+     6.    71.  48      BLEU                    16.    20.     3.               
+     6.    72.  48      KAKI                     2.     1.    10.               
+     6.    73.  50      NOIR                     9.    10.    20.               
+     6.    74.  52      BLEU                    40.    27.    18.               
+DSNE610I NUMBER OF ROWS DISPLAYED IS 15                                         
+DSNE616I STATEMENT EXECUTION WAS SUCCESSFUL, SQLCODE IS 100                     
+---------+---------+---------+---------+---------+---------+---------+---------+
+   SELECT * FROM ADCDA.TARTI;                                           00020007
+---------+---------+---------+---------+---------+---------+---------+---------+
+  IDART  LIBART                   PRXART   QTEART  IDMAR  IDFAM    IDFOU  DMART 
+---------+---------+---------+---------+---------+---------+---------+---------+
+     1.  BASKETS                  120.95      28.    10.  VET     11000.  2022-1
+     2.  T-SHIRT                    3.45      98.    11.  VET     10000.  2022-0
+     3.  SAVON                      3.40     152.    50.  HYG     50000.  2021-1
+     4.  BOEUF BOURGUI              4.20      25.    71.  ALI     71000.  2021-1
+     5.  JOURNAL                    1.90      28.    30.  PAP     31000.  2021-1
+     6.  CASQUETTE                  5.20      95.    10.  VET     10000.  2021-1
+     7.  PRODUIT WC                 2.75      33.    41.  ENT     50000.  2021-1
+     8.  FATAL PICARDS             19.99      72.    60.  MUS     60000.  2020-1
+     9.  BRIOCHE                    1.90      28.    70.  BOU     70000.  2021-1
+DSNE610I NUMBER OF ROWS DISPLAYED IS 9                       
+DSNE616I STATEMENT EXECUTION WAS SUCCESSFUL, SQLCODE IS 100  
+
