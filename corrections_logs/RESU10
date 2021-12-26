@@ -1,53 +1,54 @@
+
 ---------+
    SELECT  (QTES  * PRXART) AS VALEUR, QTES, PRXART
      , A.IDART, LIBART ,IDDEC
-      FROM TDECL D
-       ,   TARTI A
+      FROM ADCDA.TDECL D
+       ,   ADCDA.TARTI A
     WHERE D.IDART = A.IDART
       ORDER BY 1, 2
       ;
 -------------------
    SELECT        MAX(QTES  * PRXART) AS VALEUR
-      FROM TDECL D
-       ,   TARTI A
+      FROM ADCDA.TDECL D
+       ,   ADCDA.TARTI A
     WHERE D.IDART = A.IDART
       ;
 -------------------
    SELECT A.IDART, IDDEC, LIBART, COLORIS
         , (QTES  * PRXART)
-      FROM TDECL D
-       ,   TARTI A
+      FROM ADCDA.TDECL D
+       ,   ADCDA.TARTI A
       WHERE  (QTES  * PRXART)  IN
       ( SELECT        MAX(QTES  * PRXART) AS VALEUR
-           FROM TDECL D
-            ,   TARTI A
+           FROM ADCDA.TDECL D
+            ,   ADCDA.TARTI A
          WHERE D.IDART = A.IDART
       )
       ;
 ---------+
 ---------+
 -------------------
-   SELECT  SUM((QTES  * PRXART)) AS VALEUR
-     , A.IDART, LIBART
-      FROM TDECL D
-       ,   TARTI A
+   SELECT  (QTES  * PRXART) AS VALEUR , QTES, PRXART,
+     A.IDART, LIBART
+      FROM ADCDA.TDECL D
+       ,   ADCDA.TARTI A
     WHERE D.IDART = A.IDART
     GROUP BY A.IDART, LIBART
       ORDER BY 1, 2
       ;
 ---------
 -------------------
-   SELECT  (QTES  * PRXART) AS VALEUR
-     , A.IDART, LIBART ,IDDEC
-      FROM TDECL D
-       ,   TARTI A
+   SELECT  (QTES  * PRXART) AS VALEUR, 
+      A.IDART, LIBART ,IDDEC
+      FROM ADCDA.TDECL D
+       ,   ADCDA.TARTI A
     WHERE D.IDART = A.IDART
     GROUP BY  A.IDART, LIBART ,IDDEC
     HAVING
             (QTES  * PRXART) >=  ALL
       (SELECT MAX(QTES  * PRXART)
-        FROM TDECL DD
-         ,   TARTI AA
+        FROM ADCDA.TDECL DD
+         ,   ADCDA.TARTI AA
          WHERE DD.IDART = AA.IDART
       )
       ORDER BY 1, 2
@@ -56,10 +57,10 @@
 ---A10  ------------
 ---  VALORISATION DES ARTICLES ET DES DéCLINAISONS
 ---------+
-   SELECT  (QTES  * PRXART) AS VALEUR, QTES, PRXART
-     , A.IDART, LIBART ,IDDEC
-      FROM TDECL D
-       ,   TARTI A
+   SELECT  (QTES  * PRXART) AS VALEUR, QTES, PRXART,
+     A.IDART, LIBART ,IDDEC
+      FROM ADCDA.TDECL D
+       ,   ADCDA.TARTI A
     WHERE D.IDART = A.IDART
       ORDER BY 1, 2
       ;
@@ -68,8 +69,8 @@
 ---  AFFICHAGE DE L'ARTICLE LE PLUS VALORISE
 -------------------
    SELECT        MAX(QTES  * PRXART) AS VALEUR
-      FROM TDECL D
-       ,   TARTI A
+      FROM ADCDA.TDECL D
+       ,   ADCDA.TARTI A
     WHERE D.IDART = A.IDART
       ;
 ---------+
@@ -82,12 +83,12 @@
 -------------------
    SELECT A.IDART, IDDEC, LIBART, COLORIS
         , (QTES  * PRXART)
-      FROM TDECL D
-       ,   TARTI A
+      FROM ADCDA.TDECL D
+       ,   ADCDA.TARTI A
       WHERE  (QTES  * PRXART)  IN
       ( SELECT        MAX(QTES  * PRXART) AS VALEUR
-           FROM TDECL D
-            ,   TARTI A
+           FROM ADCDA.TDECL D
+            ,   ADCDA.TARTI A
          WHERE D.IDART = A.IDART
       )
       ;
@@ -98,8 +99,8 @@
 -------------------
    SELECT  SUM((QTES  * PRXART)) AS VALEUR
      , A.IDART, LIBART
-      FROM TDECL D
-       ,   TARTI A
+      FROM ADCDA.TDECL D
+       ,   ADCDA.TARTI A
     WHERE D.IDART = A.IDART
     GROUP BY A.IDART, LIBART
       ORDER BY 1, 2
