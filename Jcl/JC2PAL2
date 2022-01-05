@@ -1,0 +1,11 @@
+//LEMA02J JOB MSGLEVEL=(1,1),NOTIFY=&SYSUID,TIME=(0,05)                 00010000
+//*                                                                     00020000
+//* RUN A COBOL PROGRAM                                                 00030000
+//*                                                                     00040000
+//STEP01 EXEC PGM=C2PAL2                                                00050004
+//STEPLIB  DD DSN=LEMA02.LOADLIB,DISP=SHR                               00060000
+//SYSOUT   DD SYSOUT=*                                                  00070000
+//*                                                                     00070101
+//FDELAI   DD DSN=LEMA02.FIC.FDELAI,DISP=SHR                            00070202
+//FJOUR    DD DSN=LEMA02.FIC.FJOUR,DISP=SHR                             00070302
+/*                                                                      00070400
