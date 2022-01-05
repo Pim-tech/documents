@@ -1,0 +1,31 @@
+//SUPPR1   EXEC PGM=IEFBR14
+//SYSPRINT DD   SYSOUT=*
+//SYSOUT   DD   SYSOUT=*
+//SYSDUMP  DD   SYSOUT=*
+//DD1      DD   DSN=ADCDA.FIC.TRAVAIL, 
+//               DISP=(OLD,DELETE,DELETE)
+//DD2      DD   DSN=ADCDA.FIC.INDXTRI,
+//               DISP=(OLD,DELETE,DELETE) 
+//
+//ADCDEE   JOB  'INDEXREC',MSGCLASS=X,CLASS=A,
+//             REGION=4M,MSGLEVEL=(1,1),NOTIFY=&SYSUID,TIME=(0,30)
+//*
+//* * EXECUTION DU PROGRAMME PRINCIPAL                           *
+//* **************************************************************
+//JINDEXR   EXEC PGM=INDEXREC
+//* **************************************************************
+//* * DECLARATION DE LA BIBLIOTHEQUE QUI CONTIENT LE LOAD MODULE *
+//STEPLIB   DD DSN=ADCDE.COB.LOAD,DISP=SHR
+//* **************************************************************
+//TRI       DD   DSN=ADCDE.FIC.INDXTRI,DISP=SHR
+//TRAVAIL   DD   DSN=ADCDE.FIC.TRAVAIL,DISP=SHR
+//RESERVA   DD   DSN=ADCDE.FIC.RESERVAT,DISP=SHR
+//RECAPIT   DD   DSN=ADCDE.FIC.SUMMARY,DISP=SHR
+//SYSOUT    DD   SYSOUT=*
+//SYSIN     DD   *
+//SYSPRINT  DD   SYSOUT=*
+//* **************************************************************
+//* * DECLARATION DU FICHIER DES MOUVEMENTS EN ENTREE            *
+//* **************************************************************
+
+

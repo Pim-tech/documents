@@ -13,7 +13,7 @@
 //FENRICHI  DD   DSN=ADCDK.FIC.SORTIE,DISP=SHR
 //SYSOUT    DD SYSOUT=*
 //SYSIN    DD *
-//*YSPRINT DD SYSOUT=*
+//SYSPRINT DD SYSOUT=*
 //* **************************************************************
 //* * DECLARATION DU FICHIER DES MOUVEMENTS EN ENTREE            *
 //* **************************************************************

@@ -1,0 +1,16 @@
+//ADCDES  JOB 'CREFIC',MSGCLASS=X,CLASS=A,REGION=4M,
+//          MSGLEVEL=(1,1),NOTIFY=&SYSUID,TIME=(0,30)
+//* ALLOCATION D'UN FICHIER
+//* CREATION
+//*
+//ALLOUER  EXEC PGM=IEFBR14
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//SYSDUMP  DD SYSOUT=*
+//SORTOUT  DD DSN=ADCDE.FIC.RESERVAT,
+//          DISP=(NEW,CATLG,DELETE),
+//          SPACE=(TRK,(1,1),RLSE),
+//          UNIT=SYSDA,
+//          DCB=(DSORG=PS,RECFM=FB,LRECL=64,BLKSIZE=640)
+//*
+//* **************************************************************

@@ -1,0 +1,249 @@
+Lille2021
+Hier
+Mar. 16:41
+
+Moris salt a importé 2 éléments
+Word
+FM facilities.docx
+Texte
+S1DAT1.TXT
+Au début de la semaine
+Lun. 10:36
+
+yann baron a modifié un élément.
+Google Docs
+INDEX-COBOL
+Lun. 10:36
+
+yann baron a ajouté un élément dans
+Dossier Google Drive
+Lille2021
+Google Docs
+INDEX-COBOL
+Lun. 10:36
+
+yann baron a créé un élément
+Google Docs
+INDEX-COBOL
+La semaine dernière
+Dim. 19:16
+
+Moris salt a importé un élément
+Texte
+INDEX-COBOL.txt
+27 Déc. 2021
+
+Moris salt a importé 6 éléments
+Texte
+Exercice DB2 pour la fin d'année.txt
+Fichier binaire
+SPUFI.CTCOMM
+Fichier binaire
+SPUFI.EXPLOR
+Fichier binaire
+SPUFI.CTDECL
+Fichier binaire
+SPUFI.CTLIGC
+Fichier binaire
+SPUFI.CTFOUR
+Le mois dernier
+20 Déc. 2021
+
+Moris salt a importé 6 éléments
+Word
+TSO memento.doc
+PDF
+MVS - Memento JCL.pdf
+Word
+SQL DB2 - SQLCODE.doc
+PDF
+Procedure transfert wc3270.pdf
+Fichier binaire
+106-SOUSPGM.cbl
+Fichier binaire
+105-principal.cbl
+8 Déc. 2021
+
+Moris salt a modifié un élément.
+Fichier binaire
+106-SOUSPGM.cbl
+6 Déc. 2021
+
+Moris salt a importé 3 éléments
+Image
+synchro.jpg
+Fichier binaire
+synchro.COB
+Texte
+SYNCHRO.txt
+6 Déc. 2021
+
+Adrien Foulon a modifié un élément.
+Google Docs
+230-pizza
+6 Déc. 2021
+
+Adrien Foulon a ajouté un élément dans
+Dossier Google Drive
+Lille2021
+Google Docs
+230-pizza
+6 Déc. 2021
+
+Moris salt a importé 6 éléments
+Fichier binaire
+B30701-lire-ecrire-extend.cbl
+Word
+Parking.doc
+Fichier binaire
+SUDOKU.cbl
+PDF
+COBOL le cours - les PICTURE.pdf
+PDF
+Les tables.pdf
+Word
+COBOL le cours - les PICTURE.docx
+L'année dernière
+30 Nov. 2021
+
+Adrien Foulon a modifié un élément.
+Google Docs
+Syllabus-Cobol
+30 Nov. 2021
+
+Adrien Foulon a ajouté un élément dans
+Dossier Google Drive
+Lille2021
+Google Docs
+Syllabus-Cobol
+29 Nov. 2021
+
+Serge Thuillier a importé un élément
+Fichier binaire
+Tmois.cbl
+29 Nov. 2021
+
+Moris salt a modifié un élément.
+Image
+Algo 030-P2C-puissance de 2.jpeg
+29 Nov. 2021
+
+Moris salt a modifié un élément.
+Image
+Algo 030-P2A-puissance de 2.jpeg
+29 Nov. 2021
+
+Moris salt a modifié un élément.
+Fichier inconnu
+Algo 030-P2A-puissance de 2.dia
+29 Nov. 2021
+
+Moris salt a modifié un élément.
+Fichier inconnu
+Algo 030-P2C-puissance de 2.dia
+29 Nov. 2021
+
+Moris salt a importé 10 éléments
+Image
+Algo 040-Nombre premier.jpeg
+Fichier inconnu
+Algo 040-Nombre premier.dia
+Image
+Algo 030-P2A-puissance de 2.jpeg
+Fichier inconnu
+Algo 030-P2A-puissance de 2.dia
+Image
+Algo 030-P2C-puissance de 2.jpeg
+Fichier inconnu
+Algo 030-P2C-puissance de 2.dia
+Le sous-programme
+
+L'objectif est d'appeler un sous-programme à partir de 2 programmes différents
+
+Les programmes appelants s'appellent C1PAL1 et C1PAL2.
+Le sous-programme s'appelle S1DAT1 :                                          
+      *********************************************************         00022000
+      *     CALCULE LE NOM DU JOUR DE LA SEMAINE                        00023001
+      *     EN FONCTION D'UN DELAI EN JOURS.                            00024024
+      *     DONNE EGALEMENT LE NOMBRE DE SEMAINES ET D'ANNEES           00024124
+      *                                                                 00024224
+      *     SI LE PROGRAMME APPELANT EST C1PAL2                         00024324
+      *     S1DAT1 EFFECTUE LE CALCUL SI LA ZONE DE LIEN "MOT"          00024424
+      *     CONTIENT "STP"                                              00024524
+      *     SI LE PROGRAMME APPELANT EST C1PAL2                         00024624
+      *     ET QUE LA ZONE DE LIEN "MOT" NE CONTIENT PAS "STP"          00024724
+      *     SDAT1 RENVOIE UN CODE RETOUR 12 ET UN MESSAGE               00024825
+      *                                                                 00024924
+      *     SI LE PROGRAMME APPELANT EST C1PAL1                         00025024
+      *     S1DAT1 EFFECTUE LE CALCUL SYSTEMATIQUEMENT                  00025124
+      *********************************************************         00025324
+	  
+Les programmes appelants lisent un fichier dans lequel se trouve la question
+et écrive la réponse dans un autre fichier
+           SELECT FIN-DELAI ASSIGN TO FDELAI                            00024901
+           FILE STATUS  IS WS-FS-IN-DELAI.                              00025201
+                                                                        00025300
+           SELECT FOU-JOUR ASSIGN TO FJOUR                              00025401
+           FILE STATUS  IS WS-FS-OU-JOUR.                   
+		                                                                       
+      *********************************************************          
+      *     C1PAL1 LIT UN FICHIER                                               
+      *     et                                                
+      *     APPEL UN  SOUS-PPROGRAMME     
+      *           QUI CALCULE une semaine (nombre et jour) 
+	              A PARTIR DU DELAI  lu       
+      *           et A PARTIR DE LA DATE DU JOUR                            
+      *********************************************************             
+		   
+	  ***********************************************************       00022005
+      *     C1PAL2 LIT UN FICHIER                                               
+      *     AVEC UN DELAI                                               00023101
+      *     APPEL UN SOUS-PPROGRAMME                                    00023201
+      *           QUI CALCULE A PARTIR DU DELAI                         00023301
+      *           A PARTIR DE LA DATE DU JOUR                           00023401
+      *     SI LE MOT CLE N'EST PAS STP,                                00023505
+      *     LE SOUS-PROGRAMME REFUSE LE CALCUL                          00023605
+      *                                                                 00023705
+      *     LE MOT DE PASSE EST PASSE EN PARAMETRE                      00023805
+      *     C'EST LA SEULE DIFFERENCE AVEC C1PAL1                       00023905
+      *     (A PART LA MISE A JOUR DE LA ZONE DE LIEN MOT               00024005
+      *      ET LA ZONE DE LIEN QUI CONTIENT LE NOM DU PROGRAMME)       00024105
+      ***********************************************************       00024205
+	  
+	  
+	  Zone de communication
+	  ********************************************************          00035615
+       LINKAGE SECTION.                                                 00035715
+      ********************************************************          00035815
+       01 LS-LIEN.                                                      00035915
+          05 LS-LIEN-IN.                                                00036015
+             10 LS-LIEN-IN-CODE          PIC X(8).                      00036115
+             10 LS-LIEN-IN-DELAI         PIC S9(7) COMP-3.              00036220
+             10 LS-LIEN-IN-MOT           PIC X(03).                     00036320
+             10 FILLER                   PIC X(47).                     00036420
+          05 LS-LIEN-OU.                                                00036520
+             10 LS-LIEN-OU-NB-SEM        PIC S9(5) COMP-3.              00036620
+             10 LS-LIEN-OU-JOUR-SEMAINE  PIC X(10).                     00036720
+             10 LS-LIEN-OU-NB-ANNEE      PIC S9(3) COMP-3.              00036820
+             10 LS-LIEN-OU-CODE-RETOUR   PIC XX .                       00036920
+             10 LS-LIEN-OU-MESSAGE       PIC X(100).                    00037020
+             10 FILLER                   PIC X(50).                     00038020
+			 
+			 Pour récupérer le jour de la semaine 
+			 ACCEPT WS-JSEM FROM DAY-OF-WEEK.    
+			 Le nombre retourné est 0 pour dimanche, 1 pour lundi, etc
+			 
+		Le sous-programme affiche en display le jour de la semaine
+
+et passe en paramètre le résultat des calculs
+
+		Si le signe est +, il s'agit d'un calcul pour une date future,
+		Si le signe est -, il s'agit d'une date dans le passé.
+		
+		Calcul : il faut ajouter LS-LIEN-IN-DELAI  au jour de la semaine
+		Calcul : pour connaitre le jour de semaine calculé, il faut diviser par 7
+		avec l'option REMAINDER
+		(il y a 7 jours dans la semaine)
+		
+		
+		   
