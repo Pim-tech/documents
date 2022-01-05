@@ -1,0 +1,153 @@
+//ADCDET   JOB  'TRIER',MSGCLASS=X,CLASS=A,
+//             RESTART=SUPPR1,
+//             REGION=4M,MSGLEVEL=(1,1),NOTIFY=&SYSUID,TIME=(0,30)
+//*
+//* **************************************************************
+//* * SUPPRESSION DES FICHIERS                                   *
+//* **************************************************************
+//SUPPR1   EXEC PGM=IEFBR14
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//SYSDUMP  DD SYSOUT=*
+//DD1      DD DSN=ADCDE.FIC.RESERVAT,
+//            DISP=(OLD,DELETE,DELETE)
+//*
+//ALLOUE1  EXEC PGM=IEFBR14
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//SYSDUMP  DD SYSOUT=*
+//DD1      DD DSN=ADCDE.FIC.RESERVAT,
+//            DISP=(NEW,CATLG,DELETE),
+//            SPACE=(TRK,(1,1),RLSE),
+//            UNIT=SYSDA,
+//            DCB=(DSORG=PS,RECFM=FB,LRECL=64,BLKSIZE=640)
+//*
+//* **************************************************************
+//SUPPR2   EXEC PGM=IEFBR14
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//SYSDUMP  DD SYSOUT=*
+//DD1      DD DSN=ADCDE.FIC.TRAVAIL,
+//            DISP=(OLD,DELETE,DELETE)
+//*
+//* **************************************************************
+//SUPPR3   EXEC PGM=IEFBR14
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//SYSDUMP  DD SYSOUT=*
+//DD1      DD DSN=ADCDE.FIC.INDXTRI,
+//            DISP=(OLD,DELETE,DELETE)
+//*
+//* **************************************************************
+//SUPPR4   EXEC PGM=IEFBR14
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//SYSDUMP  DD SYSOUT=*
+//DD1      DD DSN=ADCDE.FIC.RECAPIT,
+//            DISP=(OLD,DELETE,DELETE)
+//*
+//* **************************************************************
+//* * ALLOCATION  DES FICHIERS                                   *
+//* **************************************************************
+//* **************************************************************
+//ALLOUE2  EXEC PGM=IEFBR14
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//SYSDUMP  DD SYSOUT=*
+//DD2      DD DSN=ADCDE.FIC.TRAVAIL,
+//            DISP=(NEW,CATLG,DELETE),
+//            SPACE=(TRK,(1,1),RLSE),
+//            UNIT=SYSDA,
+//            DCB=(DSORG=PS,RECFM=FB,LRECL=64,BLKSIZE=640)
+//*
+//* **************************************************************
+//ALLOUE3  EXEC PGM=IEFBR14
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//SYSDUMP  DD SYSOUT=*
+//DD3      DD DSN=ADCDE.FIC.INDXTRI,
+//            DISP=(NEW,CATLG,DELETE),
+//            SPACE=(TRK,(1,1),RLSE),
+//            UNIT=SYSDA,
+//            DCB=(DSORG=PS,RECFM=FB,LRECL=64,BLKSIZE=640)
+//*
+//* **************************************************************
+//ALLOUE4  EXEC PGM=IEFBR14
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//SYSDUMP  DD SYSOUT=*
+//DD4      DD DSN=ADCDE.FIC.RECAPIT,
+//            DISP=(NEW,CATLG,DELETE),
+//            SPACE=(TRK,(1,1),RLSE),
+//            UNIT=SYSDA,
+//            DCB=(DSORG=PS,RECFM=FB,LRECL=48,BLKSIZE=480)
+//*
+//* **************************************************************
+//* **************************************************************
+//* **************************************************************
+//* **************************************************************
+//TRIER   EXEC PGM=INDEXREC
+//STEPLIB  DD DSN=ADCDE.COB.LOAD,DISP=SHR
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//SYSDUMP  DD SYSOUT=*
+//RESERVA  DD DSN=ADCDE.FIC.RESERVAT,DISP=SHR
+//TRAVAIL  DD DSN=ADCDE.FIC.TRAVAIL,DISP=SHR
+//TRI      DD DSN=ADCDE.FIC.INDXTRI,DISP=SHR
+//RECAPIT  DD DSN=ADCDE.FIC.RECAPIT,DISP=SHR
+/*
+//* **************************************************************
+//* IMPRESSION EN HEXA ET EN CLAIR
+//* **************************************************************
+//HEXA     EXEC PGM=IDCAMS
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//RESERVA  DD DSN=ADCDE.FIC.RESERVAT,DISP=SHR
+//SYSIN    DD *
+      PRINT    INFILE(RESERVA)
+/*
+//
+//* **************************************************************
+//* IMPRESSION EN  CLAIR
+//* **************************************************************
+//CLAIR    EXEC PGM=IDCAMS
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//TRIE     DD DSN=ADCDE.FIC.INDXTRIE,DISP=SHR
+//SYSIN    DD *
+      PRINT    INFILE(TRIE)  CHAR
+/*
+//* **************************************************************
+//* IMPRESSION EN  CLAIR EN OMETTANT LES 2 PREMIERS
+//* **************************************************************
+//CLAIR    EXEC PGM=IDCAMS
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//TRIE     DD DSN=ADCDE.FIC.INDXTRIE,DISP=SHR
+//SYSIN    DD *
+      PRINT    INFILE(TRIE)  CHAR  -
+      SKIP(2)
+/*
+//* **************************************************************
+//* IMPRESSION EN  CLAIR EN SE LIMITANT à 3 ENREGISTREMENTS
+//* **************************************************************
+//CLAIR    EXEC PGM=IDCAMS
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//TRIE     DD DSN=ADCDE.FIC.INDXTRIE,DISP=SHR
+//SYSIN    DD *
+      PRINT    INFILE(TRIE)  CHAR  -
+      COUNT(3)
+/*
+//* **************************************************************
+//* IMPRESSION EN  CLAIR EN SE LIMITANT AU  3EME ENREGISTREMENT
+//* **************************************************************
+//CLAIR    EXEC PGM=IDCAMS
+//SYSPRINT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*
+//TRIE     DD DSN=ADCDE.FIC.INDXTRIE,DISP=SHR
+//SYSIN    DD *
+      PRINT    INFILE(TRIE)  CHAR  -
+      SKIP(2)   -
+      COUNT(1)
+/*
