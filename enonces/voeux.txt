@@ -1,0 +1,25 @@
+Voeux
+
+Exercice simplifié d'un appel de sous-programme.
+
+Le programme principal VOEUX accepte un paramètre sur 2 positions alphanumériques,
+il appelle le sous-programme LANGUES en lui passant le paramètre lu
+Le sous-programme LANGUES cherche le libellé dans une table en working
+et le renvoie dans sa LINKAGE.
+S'il n'a pas trouvé le paramètre dans la table, il renvoie "VIVE LE COBOL"
+Le programme principal VOEUX affiche le paramètre et le libellé dans SYSOUT.
+
+Fichiers : SYSIN et SYSOUT,
+Verbes d'entrée-sortie : ACCEPT, DISPLAY
+
+FR BONNE ANNEE
+EN GOOD YEAR
+DE gutes Jahr 
+LA bonum annus 
+IR bliain mhaith 
+LU gutt Joer 
+RF goed jier 
+
+
+
+(autre) VIVE LE COBOL
