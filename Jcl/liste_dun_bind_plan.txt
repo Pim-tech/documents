@@ -14,3 +14,29 @@ DECINS
 FAMINS
 FOUINS
 MARINS
+
+1 : Compiler le JCL
+2 : Refaire le plan :  =M.15.5.1
+
+ COMMAND ===>                                                                   
+                                                                                
+ Enter DBRM data set name(s):                                                   
+  1  MEMBER ......... ===> DEMAJS2                                              
+  2  PASSWORD ....... ===>                                                      
+  3  LIBRARY ........ ===> 'SIMPLON.REF.DBRM'                                   
+  4  ADDITIONAL DBRMS? ......... ===> NO        (YES to include more DBRMs)     
+                                                                                
+ Enter options as desired:                                                      
+  5  PLAN NAME ................. ===> DEMAJS2   (Required to create a plan)     
+  6  CHANGE CURRENT DEFAULTS? .. ===> YES       (NO or YES)                     
+  7  ENABLE/DISABLE CONNECTIONS? ===> NO        (NO or YES)                     
+  8  INCLUDE PACKAGE LIST?...... ===> NO        (NO or YES)                     
+  9  OWNER OF PLAN (AUTHID)..... ===>           (Leave blank for your primaryID 
+ 10  QUALIFIER ................. ===>           (For tables, views, and aliases 
+ 11  CACHESIZE ................. ===>           (Blank, or value 0-4096)        
+ 12  ACTION ON PLAN ............ ===> REPLACE   (REPLACE or ADD)                
+ 13  RETAIN EXECUTION AUTHORITY. ===> NO        (YES to retain user list)       
+ 14  CURRENT SERVER ............ ===>                     (Location name)       
+ 15  INCLUDE PATH?.............. ===> NO        (NO or YES)                     
+                                                                                
+ PRESS:  ENTER to process    END to save and exit     HELP for more information  COMMAND ===>                                                                   

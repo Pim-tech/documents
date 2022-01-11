@@ -1,0 +1,4 @@
+COMPQTES  : JCL DE COmpilation
+RUNQTES   : JCL D'execution
+DEQTES    : Programme
+
