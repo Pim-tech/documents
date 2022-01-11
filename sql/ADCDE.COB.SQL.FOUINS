@@ -1,0 +1,22 @@
+   SELECT *  FROM  TFOUR  ORDER BY 1  ;                                 00010003
+-- INSERT INTO  TFOUR                                                   00010003
+--   SELECT IDFOU + 1 ,          LIBFOU
+--    FROM ADCDF.TFOUR ;
+--------------------                                                    00018000
+   COMMIT;                                                              00019000
+   SELECT *  FROM  TFOUR  ORDER BY 1  ;                                 00010003
+--------------------                                                    00018000
+   INSERT INTO  TFOUR VALUES (10000,'DECATHLON');                       00010003
+   INSERT INTO  TFOUR VALUES (11000,'INTERSPORT');                      00011003
+   INSERT INTO  TFOUR VALUES (20000,'AUCHAN');                          00012003
+   INSERT INTO  TFOUR VALUES (21000,'CARREFOUR');                       00013003
+   INSERT INTO  TFOUR VALUES (22000,'LECLERC');                         00014002
+   INSERT INTO  TFOUR VALUES (30000,'LIBRAIRIE MARTELLE');              00015002
+   INSERT INTO  TFOUR VALUES (31000,'FURET DU NORD');                   00016002
+   INSERT INTO  TFOUR VALUES (40000,'SUPER U');                         00017002
+   INSERT INTO  TFOUR VALUES (50000,'PROCTER GAMBLE');                  00017002
+   INSERT INTO  TFOUR VALUES (60000,'FNAC');                            00017002
+   INSERT INTO  TFOUR VALUES (70000,'METRO');                           00017002
+   INSERT INTO  TFOUR VALUES (71000,'API');                             00017002
+--------------------                                                    00018000
+   COMMIT;                                                              00019000

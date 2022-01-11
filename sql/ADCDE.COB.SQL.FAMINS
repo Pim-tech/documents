@@ -1,0 +1,9 @@
+   INSERT INTO  TFAMI VALUES ('VET','VETEMENTS');                       00010000
+   INSERT INTO  TFAMI VALUES ('ALI','ALIMENTAIRE');                     00011000
+   INSERT INTO  TFAMI VALUES ('PAP','PAPETERIE');                       00012000
+   INSERT INTO  TFAMI VALUES ('ENT','ENTRETIEN');                       00013000
+   INSERT INTO  TFAMI VALUES ('HYG','HYGIENE');                         00014000
+   INSERT INTO  TFAMI VALUES ('MUS','CD');                              00015000
+   INSERT INTO  TFAMI VALUES ('BOU','BOULANGERIE');                     00016000
+--------------------                                                    00017000
+   COMMIT;                                                              00018000

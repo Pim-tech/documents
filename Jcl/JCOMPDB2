@@ -1,4 +1,4 @@
-//ADCDCC JOB (ACCT#),'XXXXXXXX',MSGCLASS=H,REGION=4M,
+//ADCDEC JOB (ACCT#),'XXXXXXXX',MSGCLASS=H,REGION=4M,
 //    CLASS=A,MSGLEVEL=(1,1),NOTIFY=&SYSUID,
 //    COND=(4,LT)
 //*===================================================================*
@@ -19,8 +19,8 @@
 //* ETAPE DE COMPILATION DU PROGRAMME COBOL
 //*
 //STEP1   EXEC PCOMPDB2,
-//        MBR=DB2SQUEL,
-//        SRC=ADCDC.COB.SRC,
-//        LMOD=ADCDC.COB.LOAD,
-//        LIB=ADCDC.COB.CPY
+//        MBR=DEMAJS2,
+//        SRC=ADCDE.COB.SRC,
+//        LMOD=ADCDE.COB.LOAD,
+//        LIB=ADCDE.COB.CPY
 //

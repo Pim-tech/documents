@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. D2MAJS2.
+       PROGRAM-ID. DEMAJS2.
 
       ********************************************************
       *          PROGRAMME METTANT A JOUR LE SQL T2DECL      *
@@ -80,7 +80,7 @@
       *    ZONES DE TRAVAIL
       ********************************************************
        01 WS-SQLCODE            PIC -(6)9                .
-       01 WS-PROGRAM            PIC X(8)  VALUE 'D2MAJS22' .
+       01 WS-PROGRAM            PIC X(8)  VALUE 'DEMAJS22' .
        01 WS-CTR-VEN            PIC 999   VALUE 0.
        01 WS-CTR-RET            PIC 999   VALUE 0.
        01 WS-OPERATION          PIC S9(6)  COMP-3        .
@@ -117,8 +117,8 @@
 
            PERFORM 1000-TRT-FICHIER-VEN-DEB
               THRU 1000-TRT-FICHIER-VEN-FIN
-      *        UNTIL WS-F-FLAG  = 'FIN'
-      *         AND WS-F-FLAG2 = 'FIN'.
+              UNTIL WS-FS-IN-VEN NOT = ZERO
+                AND WS-FS-IN-RET NOT = ZERO.
 
            PERFORM 6030-CLOSE-FICHIER-VEN-DEB
               THRU 6030-CLOSE-FICHIER-VEN-FIN.
@@ -149,17 +149,17 @@
                    THRU 2000-OPERATION-FIN
                 WHEN (WS-FS-IN-VEN = ZERO
                       AND WS-FS-IN-RET = ZERO
-                      ADD WS-CLE-VEN > WS-CLE-RET )
+                      AND WS-CLE-VEN > WS-CLE-RET )
                       OR  (WS-FS-IN-VEN NOT = ZERO
                       AND  WS-FS-IN-RET = ZERO)
                 PERFORM 2010-ADDITION-DEB
-                   THRU 2010-ADDITION-FIN    
-             
+                   THRU 2010-ADDITION-FIN
+
                WHEN (WS-FS-IN-VEN = ZERO
                      AND WS-FS-IN-RET = ZERO
                      AND WS-CLE-VEN < WS-CLE-RET)
                      OR (WS-FS-IN-VEN = ZERO
-                     AND WS-FS-IN-RETG NOT = ZERO)
+                     AND WS-FS-IN-RET NOT = ZERO)
                PERFORM 2020-SOUSTRACTION-DEB
                   THRU 2020-SOUSTRACTION-FIN
 
@@ -178,15 +178,13 @@
        2000-OPERATION-DEB.
            DISPLAY 'ENTREE DANS LE 2000 OK'.
            MOVE WS-IN-VEN-IDART TO IDART.
-           MOVE WS-IN-VENT-IDDEC TO IDDEC.
+           MOVE WS-IN-VEN-IDDEC TO IDDEC.
            ADD      WS-IN-RET-QTEMVT TO WS-OPERATION.
            SUBTRACT WS-IN-VEN-QTEMVT FROM WS-OPERATION.
            PERFORM 6050-LEC-FICHIER-VEN-DEB
-              THRU 6050-LEC-FICHIER-VEN-FIN
-           END-PERFORM.
+              THRU 6050-LEC-FICHIER-VEN-FIN.
            PERFORM 6060-LEC-FICHIER-RET-DEB
-              THRU 6060-LEC-FICHIER-RET-FIN
-           END-PERFORM.
+              THRU 6060-LEC-FICHIER-RET-FIN.
            DISPLAY 'SORTIE DU 2000 OK'.
        2000-OPERATION-FIN. EXIT.
 
@@ -312,7 +310,7 @@
            DISPLAY 'IDDEC EST AVANT UPDATE : ' IDDEC
            DISPLAY 'QTES VAUT AVANT UPDATE : ' QTES
            EXEC SQL
-              UPDATE T2DECL
+              UPDATE TDECL
                   SET
                       QTES = QTES + :QTES
               WHERE IDART  = :IDART
@@ -322,11 +320,11 @@
            DISPLAY 'LE SQL CODE EST :' WS-SQLCODE.
            IF SQLCODE = ZERO
                 DISPLAY 'OK MISE A JOUR CORRECTEMENT EFFECTUE'
-           ELSE 
+           ELSE
                 MOVE SQLCODE TO WS-SQLCODE
                 DISPLAY 'LE SQLCODE EST ' WS-SQLCODE
                 DISPLAY 'IDART-IDDEC : ' IDART ' ' IDDEC
-           END-IF
+           END-IF.
        6240-UPDATE-SQL-FIN. EXIT.
 
       *----------------------------------------------------------------

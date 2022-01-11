@@ -1,0 +1,16 @@
+   SET CURRENT SQLID=USER;                                              00010000
+--------------------                                                    00010100
+-- DROP TABLE  TFOUR;                                                   00010200
+--------------------                                                    00010300
+   CREATE TABLE  TFOUR                                                  00010400
+      (IDFOU DEC(5) NOT NULL,PRIMARY KEY (IDFOU),                       00010500
+       LIBFOU CHAR(20))                                                 00010600
+      IN ADCD01DB.ADCD$01;                                              00010700
+--------------------                                                    00010800
+   GRANT ALL ON TABLE  TFOUR TO PUBLIC;                                 00010900
+--------------------                                                    00011000
+   COMMIT;                                                              00012000
+--------------------                                                    00013000
+   CREATE UNIQUE INDEX IXFOUR ON TFOUR(IDFOU) ;                         00014000
+--------------------                                                    00015000
+   COMMIT;                                                              00016000

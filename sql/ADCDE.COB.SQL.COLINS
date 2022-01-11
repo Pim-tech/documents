@@ -1,0 +1,9 @@
+ INSERT INTO  TCOLLABO VALUES ('H1','SSPAS',NULL);                      00010003
+--------------------                                                    00020000
+ COMMIT  ;                                                              00021001
+ INSERT INTO  TCOLLABO VALUES ('H2','XXCCS','H1');                      00030003
+ COMMIT  ;                                                              00031003
+ INSERT INTO  TCOLLABO VALUES ('H3','SSBOB','H1');                      00040003
+ COMMIT  ;                                                              00050003
+   SELECT * FROM TCOLLABO                                               00060003
+      ORDER BY 1  ;                                                     00070003

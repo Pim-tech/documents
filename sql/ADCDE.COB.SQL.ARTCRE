@@ -1,0 +1,22 @@
+   SET CURRENT SQLID=USER;                                              00010000
+--------------------                                                    00010100
+   SELECT * FROM TARTI;                                                 00010202
+--    DROP TABLE  TARTI;                                                00010301
+--------------------                                                    00010400
+   CREATE TABLE  TARTI                                                  00010500
+      (IDART DEC(5) NOT NULL,PRIMARY KEY (IDART),                       00010600
+       LIBART CHAR(20),PRXART DEC (7,2) , QTEART DEC(5) ,               00010700
+       IDMAR DEC (2) , IDFAM CHAR (3) , IDFOU DEC (5),                  00010800
+       DMART TIMESTAMP,                                                 00010900
+       FOREIGN KEY FKART1(IDMAR) REFERENCES TMARQ ON DELETE RESTRICT,   00011000
+       FOREIGN KEY FKART2(IDFAM) REFERENCES TFAMI ON DELETE RESTRICT,   00011100
+       FOREIGN KEY FKART3(IDFOU) REFERENCES TFOUR ON DELETE RESTRICT)   00011200
+      IN ADCD01DB.ADCD$01;                                              00011300
+--------------------                                                    00011400
+   GRANT ALL ON TABLE  TARTI TO PUBLIC;                                 00011500
+--------------------                                                    00011600
+   COMMIT;                                                              00011700
+--------------------                                                    00011800
+   CREATE UNIQUE INDEX IXART ON TARTI(IDART) ;                          00011900
+--------------------                                                    00012000
+   COMMIT;                                                              00013000

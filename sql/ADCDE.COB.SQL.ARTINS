@@ -1,0 +1,26 @@
+SELECT * FROM TFOUR;
+DELETE FROM TARTI ;
+   --------------------                                                    00018
+    COMMIT;                                                                00019
+   --------------------                                                    00018
+   INSERT INTO  TARTI VALUES (1,'BASKETS',120.95,28,10,'VET',11000,        00010
+                              CURRENT TIMESTAMP + 1 YEAR) ;                00011
+   INSERT INTO  TARTI VALUES (2,'T-SHIRT',3.45,98,11,'VET',10000,          00012
+                              CURRENT TIMESTAMP + 1 MONTH) ;               00013
+   INSERT INTO  TARTI VALUES (3,'SAVON',3.40,152,50,'HYG',50000,           00014
+                              CURRENT TIMESTAMP + 1 MINUTE ) ;             00015
+   INSERT INTO  TARTI VALUES (4,'BOEUF BOURGUI',4.20,25,71,'ALI',71000,    00016
+                              CURRENT TIMESTAMP + 1 SECOND ) ;             00017
+   INSERT INTO  TARTI VALUES (5,'JOURNAL',1.90,28,30,'PAP',31000,          00017
+                              CURRENT TIMESTAMP - 1 SECOND ) ;             00017
+   INSERT INTO  TARTI VALUES (6,'CASQUETTE',5.20,95,10,'VET',10000,        00017
+                              CURRENT TIMESTAMP - 1 MINUTE ) ;             00017
+   INSERT INTO  TARTI VALUES (7,'PRODUIT WC',2.75,33,41,'ENT',50000,       00017
+                              CURRENT TIMESTAMP - 1 DAY ) ;                00017
+   INSERT INTO  TARTI VALUES (8,'FATAL PICARDS',19.99,72,60,'MUS',60000,   00017
+                              CURRENT TIMESTAMP - 1 YEAR ) ;               00017
+   INSERT INTO  TARTI VALUES (9,'BRIOCHE',1.90,28,70,'BOU',70000,          00017
+                              CURRENT TIMESTAMP);                          00017
+   --------------------                                                    00018
+      COMMIT;                                                              00019
+   SELECT * FROM TARTI;

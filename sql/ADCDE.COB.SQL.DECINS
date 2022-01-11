@@ -1,0 +1,42 @@
+     SELECT * FROM TDECL;
+     INSERT INTO  TDECL VALUES (6,90,'38','ROSE',72,25,5);                   000
+     INSERT INTO  TDECL VALUES (6,91,'38','CRAMOISI',19,25,5);               000
+     INSERT INTO  TDECL VALUES (6,92,'40','JAUNE',38,15,10);                 000
+     INSERT INTO  TDECL VALUES (6,93,'42','TRANSPARENT',48,10,20);           000
+     INSERT INTO  TDECL VALUES (6,94,'44','VERDATRE',92,40,10);              000
+     INSERT INTO  TDECL VALUES (6,80,'L','NOIR',12,25,10);                   000
+     INSERT INTO  TDECL VALUES (6,81,'L','BLEU',25,25,5);                    000
+     INSERT INTO  TDECL VALUES (6,82,'M','NOIR',52,27,32);                   000
+     INSERT INTO  TDECL VALUES (6,83,'XS','BLEU',46,10,3);                   000
+--------------------                                                    00018000
+   COMMIT;                                                              00019000
+--------------------                                                    00018000
+    SELECT  *
+        FROM  TDECL
+        ORDER BY 1, 2
+        ;
+--------------------                                                    00018000
+     INSERT INTO  TDECL VALUES (1,90,'38','NOIR',72,25,5);                   000
+     INSERT INTO  TDECL VALUES (1,91,'38','BLEU',19,25,5);                   000
+     INSERT INTO  TDECL VALUES (1,92,'40','BLANC',38,15,10);                 000
+     INSERT INTO  TDECL VALUES (1,93,'42','NOIR',08,10,20);                  000
+     INSERT INTO  TDECL VALUES (1,94,'44','BLEU',92,40,10);                  000
+     --------------------                                                    000
+     INSERT INTO  TDECL VALUES (2,80,'L','NOIR',12,25,10);                   000
+     INSERT INTO  TDECL VALUES (2,81,'L','BLEU',25,25,5);                    000
+     INSERT INTO  TDECL VALUES (2,82,'M','NOIR',52,27,32);                   000
+     INSERT INTO  TDECL VALUES (2,83,'XS','BLEU',46,10,3);                   000
+     INSERT INTO  TDECL VALUES (2,84,'XL','VERT',19,20,12);                  000
+     --------------------                                                    000
+     INSERT INTO  TDECL VALUES (6,70,'48','VERT',5,3,5);                     000
+     INSERT INTO  TDECL VALUES (6,71,'48','BLEU',16,20,3);                   000
+     INSERT INTO  TDECL VALUES (6,72,'48','KAKI',2,1,10);                    000
+     INSERT INTO  TDECL VALUES (6,73,'50','NOIR',09,10,20);                  000
+     INSERT INTO  TDECL VALUES (6,74,'52','BLEU',40,27,18);                  000
+--------------------                                                    00018000
+   COMMIT;                                                              00019000
+--------------------                                                    00018000
+    SELECT  *
+        FROM  TDECL
+        ORDER BY 1, 2
+        ;

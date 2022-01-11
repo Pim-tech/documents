@@ -1,0 +1,16 @@
+   SET CURRENT SQLID=USER;                                              00010000
+--------------------                                                    00010100
+--    DROP TABLE  TMARQ;                                                00010201
+--------------------                                                    00010300
+   CREATE TABLE  TMARQ                                                  00010400
+      (IDMAR DEC(2) NOT NULL,PRIMARY KEY (IDMAR),                       00010500
+       LIBMAR CHAR(20))                                                 00010600
+      IN ADCD01DB.ADCD$01;                                              00010700
+--------------------                                                    00010800
+   GRANT ALL ON TABLE  TMARQ TO PUBLIC;                                 00010900
+--------------------                                                    00011000
+   COMMIT;                                                              00012000
+--------------------                                                    00013000
+   CREATE UNIQUE INDEX IXMARQ ON TMARQ(IDMAR) ;                         00014000
+--------------------                                                    00015000
+   COMMIT;                                                              00016000

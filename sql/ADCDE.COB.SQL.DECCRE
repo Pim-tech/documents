@@ -1,0 +1,23 @@
+   SET CURRENT SQLID=USER;                                              00010000
+--------------------                                                    00010100
+--DROP TABLE  TDECL;                                                    00010201
+--------------------                                                    00010300
+   CREATE TABLE  TDECL (                                                00010400
+       IDART DEC(5) NOT NULL,                                           00010500
+       IDDEC DEC(2) NOT NULL,                                           00010600
+       PRIMARY KEY (IDART,IDDEC)                                        00010700
+       ,TAILLE CHAR(3)                                                  00010800
+       ,COLORIS VARCHAR (20)                                            00010900
+       ,QTES    DEC(3)                                                  00011000
+       ,QTEA    DEC(3)                                                  00011100
+       ,QUOT    DEC(3)                                                  00011200
+       ,FOREIGN KEY FKDEC(IDART) REFERENCES TARTI ON DELETE RESTRICT)   00011300
+      IN ADCD01DB.ADCD$01;                                              00011400
+--------------------                                                    00011500
+   GRANT ALL ON TABLE  TDECL TO PUBLIC;                                 00011600
+--------------------                                                    00011700
+   COMMIT;                                                              00011800
+--------------------                                                    00011900
+   CREATE UNIQUE INDEX IXDECL ON TDECL(IDART,IDDEC) ;                   00012000
+--------------------                                                    00012100
+   COMMIT;                                                              00012200
