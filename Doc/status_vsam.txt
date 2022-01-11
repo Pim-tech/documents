@@ -1,0 +1,54 @@
+VSAM - File Status
+
+
+Code Description
+
+00 Operation completed successfully 
+02 Non-Unique Alternate Index duplicate key found 
+04 Invalid fixed length record 
+05 While performing OPEN File and file is not present 
+10 End of File encountered 
+14 Attempted to READ a relative record outside file boundary 
+20 Invalid Key for VSAM KSDS or RRDS 
+21 Sequence error while performing WRITE or changing key on REWRITE 
+22 Primary duplicate Key found 
+23 Record not found or File not found 
+24 Key outside boundary of file 
+30 Permanent I/O Error 
+34 Record outside file boundary 
+35 While performing OPEN File and file is not present 
+37 OPEN file with wrong mode 
+38 Tried to OPEN a Locked file 
+39 OPEN failed because of conflicting file attributes 
+41 Tried to OPEN a file that is already open 
+42 Tried to CLOSE a file that is not OPEN 
+43 Tried to REWRITE without READing a record first 
+44 Tried to REWRITE a record of a different length 
+46 Tried to READ beyond End-of-file 
+47 Tried to READ from a file that was not opened I-O or INPUT 
+48 Tried to WRITE to a file that was not opened I-O or OUTPUT 
+49 Tried to DELETE or REWRITE to a file that was not opened I-O 
+91 Password or authorization failed 
+92 Logic Error 
+93 Resources are not available 
+94 Sequential record unavailable or concurrent OPEN error 
+95 File Information invalid or incomplete 
+96 No DD statement for the file 
+97 OPEN successful and file integrity verified 
+98 File is Locked - OPEN failed 
+99 Record Locked - record access failed 
+
+(17:01:45) imyos@conference.swissjabber.ch/Formateur:
+ CREATE TABLE TAB_CHANSON                  
+( CODE_CHANSON     CHAR(4) NOT NULL,      
+  TITRE_CHANSON    VARCHAR(40) NOT NULL,  
+  CODE_ALBUM       CHAR(4),               
+  PRIMARY KEY (CODE_CHANSON),             
+  FOREIGN KEY FK_CHANSON_ALBUM(CODE_ALBUM)
+   REFERENCES  TAB_ALBUM                  
+   ON DELETE RESTRICT                     
+  )                                       
+                                          
+IN DBMATE1.TSMATE01                       
+                                          
+;    
