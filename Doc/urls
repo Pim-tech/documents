@@ -25,3 +25,7 @@ https://www.ibm.com/marketplace/purchase/configuration/en/us/checkout?editionID=
 #MVS 3.8 TK4 : Data in and Out of the Mainframe - M4
 https://www.youtube.com/watch?v=Ks2YPiP0tys
 /start ftpd,srvport=XXXX
+
+---------------------------------------
+https://www.ibm.com/docs/en/zos/2.2.0?topic=ftp-configuring-profiletcpip
+https://www.ibm.com/docs/en/zos/2.2.0?topic=applications-transferring-files-using-ftp
