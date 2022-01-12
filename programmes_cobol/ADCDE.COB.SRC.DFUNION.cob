@@ -59,7 +59,7 @@
                  , IDART
                  ,  0 AS IDDEC
                  ,   LIBART AS  TYPE
-                 ,  QTEART AS QTE
+                 ,  VALUE(QTEART,0) AS QTE
                  FROM  TARTI
                  UNION
                SELECT  'TDECL' AS TABLE
@@ -73,7 +73,7 @@
                , IDART
                ,  0 AS IDDEC
                , '-----' AS  TYPE
-               ,  QTEART AS QTE
+               ,  VALUE(QTEART,0) AS QTE
                  FROM  TARTI
                  WHERE IDART NOT IN
                   ( SELECT D.IDART

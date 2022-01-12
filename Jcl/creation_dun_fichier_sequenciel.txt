@@ -1,0 +1,58 @@
+=3.2
+		
+   Menu  RefList  Utilities  Help                                              
+ ──────────────────────────────────────────────────────────────────────────────
+                                Data Set Utility                               
+ Option ===>  A                                                         
+                                                                               
+     A Allocate new data set                 C Catalog data set                
+     R Rename entire data set                U Uncatalog data set              
+     D Delete entire data set                S Short data set information      
+ blank Data set information                  V VSAM Utilities                  
+                                                                               
+ ISPF Library:                                                                 
+    Project  . .                  Enter "/" to select option                   
+    Group  . . .                  /  Confirm Data Set Delete                   
+    Type . . . .                                                               
+                                                                               
+ Other Partitioned, Sequential or VSAM Data Set:                               
+    Name  B.C . . . . .                                                        
+    Volume Serial . . .           (If not cataloged, required for option "C")   
+                                                                               
+ Data Set Password  . .           (If password protected)                      
+
+<ENTER>
+
+   Menu  RefList  Utilities  Help                                              
+ ──────────────────────────────────────────────────────────────────────────────
+                             Allocate New Data Set                             
+ Command ===>                                                                  
+                                                                               
+ Data Set Name  . . . : ADCDE.B.C                                              
+                                                                               
+ Management class . . .                (Blank for default management class)    
+ Storage class  . . . .                (Blank for default storage class)       
+  Volume serial . . . . CHRIS0         (Blank for system default volume) **    
+  Device type . . . . .                (Generic unit or device address) **     
+ Data class . . . . . .                (Blank for default data class)          
+  Space units . . . . . TRACK          (BLKS, TRKS, CYLS, KB, MB, BYTES        
+                                        or RECORDS)                            
+  Average record unit                  (M, K, or U)                            
+  Primary quantity  . . 5              (In above units)                        
+  Secondary quantity    2              (In above units)                        
+  Directory blocks  . . 0              (Zero for sequential data set) *        
+  Record format . . . . FB                                                     
+  Record length . . . . 100                                                    
+  Block size  . . . . . 1000                                                   
+  Data set name type                   (LIBRARY, HFS, PDS, LARGE, BASIC, *     
+                                        EXTREQ, EXTPREF or blank)              
+  Expiration date . . .                (YY/MM/DD, YYYY/MM/DD                   
+ Enter "/" to select option             YY.DDD, YYYY.DDD in Julian form        
+    Allocate Multiple Volumes           DDDD for retention period in days      
+                                        or blank)                              
+                                                                               
+ ( * Specifying LIBRARY may override zero directory block)                     
+                                                                               
+ ( ** Only one of these fields may be specified)                               
+
+<ENTRER>

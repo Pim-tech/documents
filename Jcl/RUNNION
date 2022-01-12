@@ -1,0 +1,27 @@
+//ADCDE4 JOB 'DFUNION',MSGCLASS=H,REGION=4M,                            JOB04771
+//             CLASS=A,MSGLEVEL=(1,1),NOTIFY=&SYSUID,
+//             TIME=(0,30)
+//*            OUTLIM=500
+//*********************************************************************
+//* CHANGER CODE UTILISATEUR ET NOM DE PROGRAMME
+//*********************************************************************
+//JOBLIB   DD DSN=DSN910.DB9G.SDSNEXIT,DISP=SHR
+//         DD DSN=DSN910.SDSNLOAD,DISP=SHR
+//         DD DSN=DSN910.DB9G.RUNLIB.LOAD,DISP=SHR
+//         DD DSN=ADCDE.COB.LOAD,DISP=SHR
+//*====================================================================
+//* TEST PROG ADSD106                                          *
+//*====================================================================
+//ETAPE1   EXEC PGM=IKJEFT01,DYNAMNBR=20,COND=(8,LT)
+//FUNION   DD   DSN=ADCDE.FIC.FUNION,DISP=SHR
+//SYSUDUMP DD SYSOUT=*
+//SYSTSPRT DD SYSOUT=*
+//SYSOUT   DD SYSOUT=*,OUTLIM=500
+//SYSPRINT DD SYSOUT=*
+/*
+//SYSTSIN  DD *
+DSN SYSTEM(DB9G)
+RUN  PROGRAM(DFUNION) PLAN(DFUNION) -
+     LIB('ADCDE.COB.LOAD')
+END
+//
